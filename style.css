@@ -1,31 +1,60 @@
+:root{
+    --bckgrd-color: #F0FFFF;
+}
+
 body{
-    background-color: lightpink;
+    background-color: var(--bckgrd-color);
 }
 
 h1{
     font-family: 'Frijole', cursive;
     font-size: 400%;
-    text-align: center;
-    padding-top: 50px;
+    position: absolute;
+    margin: 50px auto auto 175px;
 }
 
 .container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.settings{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.only-grid{
+    width: 50%;
     text-align: center;
 }
 
+.res-but{
+    position: relative;
+    bottom: 20px;
+}
+
 #grid-container{
-    border: 1px solid black;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
+.button{
+    position: relative;
+    margin-top: 75px;
+    width: 50%;
+    top: 250px;
+    left: 250px;
 }
 
 .grid {
     display: grid;
-    max-width: 500px;
-    min-height: 500px;
+    width: 825px;
+    height: 825px;
     margin: 2rem auto;
-    border: 2px solid var(--border);
+    border: 2px solid rgba(0,0,0,0.3);
   }
   
   .grid-element {
-    border: 1px solid black;
-    background-color: var(--background);
+    border: 1px solid rgba(0,0,0,0.3);
+    background-color: var(--bckgrd-color);
   }

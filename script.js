@@ -30,10 +30,10 @@ function addGrid(size){
 }
 
 function rearrangeSize(){
-    let new_size = parseInt(prompt("Let's enter a value between 1 and 64: "));
+    let new_size = parseInt(prompt("Let's enter a value between 1 and 72: "));
     if(new_size !== null){
-        while(new_size < 1 || new_size > 64){
-            new_size = parseInt(prompt("The number that you enter should be between 1 and 64. Enter new one or cancel: "));
+        while(new_size < 1 || new_size > 72){
+            new_size = parseInt(prompt("The number that you enter should be between 1 and 72. Enter new one or cancel: "));
         }
         rm_grid();
         setGrid(new_size);
