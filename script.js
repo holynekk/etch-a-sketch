@@ -5,17 +5,33 @@ const warm_button = document.querySelector("#warm-color");
 const random_color = document.querySelector("#random-color");
 const grid = document.querySelectorAll(".grid-element");
 const clear = document.querySelector(".res-but");
-const slide = document.getElementById("#range-input");
+const slide = document.getElementById("range-input");
+const dark = document.getElementById("dark-mode");
 
 let colorMod = randomColor;
+let darkMode = 0;
 let gridSize = 16;
 
 window.addEventListener("load", defaultgrid);
 resetButton.addEventListener("click", rearrangeSize);
 
+dark.addEventListener("click", ()=>{
+    const grid_elements = document.querySelectorAll('.grid-element');
+    const header = document.getElementById('bumbum');
+    if(darkMode){
+        document.body.style.backgroundColor = "#F0FFFF";
+        header.style.color = "black";
+        darkMode = 0;
+    }else{
+        document.body.style.backgroundColor = "#111111";
+        header.style.color = "#F0FFFF";
+        darkMode = 1;
+    }
+    
+});
+
 cold_button.addEventListener("click", ()=>{
     const grid_elements = document.querySelectorAll('.grid-element');
-    console.log(grid_elements.length);
     grid_elements.forEach((elmt)=>{
         elmt.removeEventListener("click", colorMod);
         colorMod = randomCold;
@@ -26,7 +42,6 @@ cold_button.addEventListener("click", ()=>{
 });
 warm_button.addEventListener("click", ()=>{
     const grid_elements = document.querySelectorAll('.grid-element');
-    console.log(grid_elements.length);
     grid_elements.forEach((elmt)=>{
         elmt.removeEventListener("click", colorMod);
         colorMod = randomWarm;
@@ -37,7 +52,6 @@ warm_button.addEventListener("click", ()=>{
 });
 random_color.addEventListener("click", ()=>{
     const grid_elements = document.querySelectorAll('.grid-element');
-    console.log(grid_elements.length);
     grid_elements.forEach((elmt)=>{
         elmt.removeEventListener("click", colorMod);
         colorMod = randomColor;

@@ -33,7 +33,7 @@ h1{
     position: relative;
     bottom: 25px;
     background-color: lightgray;
-    border: 5px solid gray;
+    border: 3px solid rgba(0,0,0,0.2);
     border-radius: 15px;
     padding: 3px;
     cursor: pointer;
@@ -60,28 +60,26 @@ h1{
     left: 250px;
     padding: 5px 10px 5px 10px;
     cursor: pointer;
+    border: 3px solid rgba(0,0,0,0.2);
 }
 
 #random-color{
-    transition: all 0.5s ease;
-    border-radius: 10px;;
+    background: linear-gradient(90deg, lightsalmon, lightgreen, lightskyblue);
+    border-radius: 10px;
 }
 
 #cold-color{
     background-color: #00BFFF;
-    border: 3px solid #00BFFF;
     border-radius: 10px;;
 }
 
 #warm-color{
     background-color: #FF1493;
-    border: 3px solid #FF1493;
     border-radius: 10px;;
 }
 
 #darken{
     background-color: #666666;
-    border: 3px solid #666666;
     border-radius: 10px;;
 }
 
@@ -109,9 +107,16 @@ h1{
     height: 825px;
     margin: 2rem auto;
     border: 2px solid rgba(0,0,0,0.3);
-  }
+}
   
-  .grid-element {
+.grid-element {
     border: 1px solid rgba(0,0,0,0.3);
     background-color: var(--bckgrd-color);
-  }
+}
+
+#dark-mode{
+    position: absolute;
+    top: 94%;
+    height: 50px;
+    cursor: pointer;
+}
