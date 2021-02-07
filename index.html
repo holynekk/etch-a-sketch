@@ -12,10 +12,14 @@
         <h1> Etch A Sketch </h1>
         <div id="main-container" class="container">
             <div class="settings">
-                <button id="reset-button" class="button">Change size</button>
-                <button id="cold-color" class="button">Change size</button>
-                <button id="warm-color" class="button">Change size</button>
-                <button id="darken" class="button">Change size</button>
+                <div class="range-slider">
+                    <input type="range" id="range-input" class="slider button" min="1" max="72" step="1" value="16">
+                    <button id="reset-button" class="button">Apply</button>
+                </div>
+                <button id="random-color" class="button">Random Colors</button>
+                <button id="cold-color" class="button">Cold Colors</button>
+                <button id="warm-color" class="button">Warm Colors</button>
+                <button id="darken" class="button">Darken Mod</button>
             </div>
         <div class="only-grid">
             <div id="grid-container" class="grid"></div>
