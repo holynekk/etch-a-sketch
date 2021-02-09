@@ -9,24 +9,28 @@
         <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet"> 
     </head>
     <body>
-        <h1 id="bumbum"> Etch A Sketch </h1>
         <div id="main-container" class="container">
             <div class="settings">
+                <h1 id="bumbum"> Etch A Sketch </h1><br>
                 <div class="range-slider">
-                    <input type="range" id="range-input" class="slider button" min="1" max="72" step="1" value="16">
-                    <button id="reset-button" class="button">Apply</button>
+                    <form id="input-slider">
+                        <input type="range" id="range-input" name="VOL" class="button" min="1" max="72" step="1">
+                    </form>
+                    
+                    <button id="reset-button" class="button" onclick="getInput()">Apply</button>
                 </div>
                 <button id="random-color" class="button">Random Colors</button>
                 <button id="cold-color" class="button">Cold Colors</button>
                 <button id="warm-color" class="button">Warm Colors</button>
                 <button id="darken" class="button">Darken Mod</button>
+                <img id="dark-mode" src="https://static.appvn.com/a/uploads/thumbnails/032020/dark-mode_icon.png">
             </div>
             <div class="only-grid">
                 <div id="grid-container" class="grid"></div>
                 <button id="clear-grid" class="res-but">Reset Grid</button>
             </div>
         </div>
-        <img id="dark-mode" src="https://static.appvn.com/a/uploads/thumbnails/032020/dark-mode_icon.png">
+        
     </body>
 </html>
 

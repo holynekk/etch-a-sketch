@@ -3,17 +3,18 @@ const resetButton = document.querySelector("#reset-button");
 const cold_button = document.querySelector("#cold-color");
 const warm_button = document.querySelector("#warm-color");
 const random_color = document.querySelector("#random-color");
+const darken = document.querySelector("#darken");
 const grid = document.querySelectorAll(".grid-element");
 const clear = document.querySelector(".res-but");
 const slide = document.getElementById("range-input");
 const dark = document.getElementById("dark-mode");
 
+let darkArray = ["rgb(230, 230, 230)", "rgb(200, 200, 200)", "rgb(160, 160, 160)", "rgb(120, 120, 120)", "rgb(80, 80, 80)", "rgb(40, 40, 40)", "rgb(0, 0, 0)"];
 let colorMod = randomColor;
 let darkMode = 0;
 let gridSize = 16;
 
 window.addEventListener("load", defaultgrid);
-resetButton.addEventListener("click", rearrangeSize);
 
 dark.addEventListener("click", ()=>{
     const grid_elements = document.querySelectorAll('.grid-element');
@@ -27,7 +28,6 @@ dark.addEventListener("click", ()=>{
         header.style.color = "#F0FFFF";
         darkMode = 1;
     }
-    
 });
 
 cold_button.addEventListener("click", ()=>{
@@ -60,6 +60,16 @@ random_color.addEventListener("click", ()=>{
         defaultgrid();
     });
 });
+darken.addEventListener("click", ()=>{
+    const grid_elements = document.querySelectorAll('.grid-element');
+    grid_elements.forEach((elmt)=>{
+        elmt.removeEventListener("click", colorMod);
+        colorMod = darkenColor;
+        elmt.addEventListener("click", colorMod);
+        removeGrid();
+        defaultgrid();
+    });
+});
 
 function randomColor(node){
     const red = Math.floor(Math.random()*256);
@@ -80,6 +90,26 @@ function randomWarm(node){
     const green = Math.floor(Math.random()*128);
     const blue = Math.floor(Math.random()*256);
     node.target.style.backgroundColor = "#"+red.toString(16)+green.toString(16)+blue.toString(16);
+}
+
+
+function darkenColor(node){
+    let colorValue = node.target.style.backgroundColor;
+    if(!colorValue){
+        node.target.style.backgroundColor = "rgb(230, 230, 230)";
+    }else{
+        if(colorValue === "rgb(0,0,0)"){
+            // Pass
+        }else{
+            node.target.style.backgroundColor = darkArray[darkArray.indexOf(colorValue)+1];
+        }
+    }
+}
+
+function getInput(){
+    gridSize = document.getElementById("range-input").value;
+    removeGrid();
+    defaultgrid(gridSize);
 }
 
 clear.addEventListener("click", ()=>{
@@ -104,32 +134,6 @@ function addGrid(size){
         gridContainer.appendChild(gridElement);
     }
 }
-
-function rearrangeSize(){
-    gridSize = prompt("Enter ne value: ");
-    if(gridSize !== null){
-        while(gridSize < 1 || gridSize > 72){
-            gridSize = parseInt(prompt("The number that you enter should be between 1 and 72. Enter new one or cancel: "));
-        }
-        removeGrid();
-        setGrid(gridSize);
-        addGrid(gridSize);
-    }else;
-}
-
-/*
-function rearrangeSize(){
-    gridSize = prompt("Enter ne value: ");
-    if(gridSize !== null){
-        while(gridSize < 1 || gridSize > 72){
-            gridSize = parseInt(prompt("The number that you enter should be between 1 and 72. Enter new one or cancel: "));
-        }
-        removeGrid();
-        setGrid(gridSize);
-        addGrid(gridSize);
-    }else;
-}
-*/
 
 function removeGrid(){
     const grid_elements = document.querySelectorAll('.grid-element');
